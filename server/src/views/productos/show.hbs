@@ -1,0 +1,46 @@
+<script type="text/javascript" src="/js/carrito.js"></script>
+
+<section class="section">
+
+{{#if productExists }}
+      <div class="container">
+        <h1 class="title">
+            {{ product.title }}
+        </h1>
+        <div class="card columns is-vcentered">
+
+                <div class="card-image column">
+                    <figure class="image ">
+                    <img src={{ product.thumbnail }} alt="Placeholder image" />
+                    
+                    </figure>
+                </div>
+
+                <form id="addToCart" target="/api/carrito/{{ product.id }}" method="POST" class="card-content column">
+
+                    <div class="content">
+                        <p>{{ product.description }}</p>
+                        <h5>${{product.price}} </h5>
+                        <br>
+                        <div class="field has-addons">
+                            <div class="control" style="width: 4rem; ">
+                                <input class="input" id="quantity" min="1" type="number" placeholder="Ingresa una cantidad" value="1">
+                            </div>
+                            <div class="control">
+                               <button type="submit" class="button is-success">Agregar al carrito</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+    </div>
+
+{{else}}
+
+  <h1>No existe el Producto</h1>
+
+{{/if}}
+  
+  </section>
+

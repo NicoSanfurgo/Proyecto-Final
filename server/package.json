@@ -1,0 +1,43 @@
+{
+  "name": "proyecto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "set NODE_ENV=production&& node ./src/index.js --",
+    "dev": "set NODE_ENV=development&& node ./src/index.js --",
+    "build": "npm install",
+    "prod": "set NODE_ENV=production&& node ./src/index.js --",
+    "watch": "set NODE_ENV=development&& nodemon ./src/index.js",
+    "mysql:migrate": "node ./src/persistence/mysql/migration.js",
+    "mysql:drop": "node ./src/persistence/mysql/drop.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.5.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "express-session": "^1.17.2",
+    "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.95.7",
+    "mongoose": "^5.13.2",
+    "multer": "^1.4.3",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.6.3",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "twilio": "^3.67.2",
+    "winston": "^3.3.3",
+    "yargs": "^17.2.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0"
+  }
+}

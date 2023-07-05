@@ -1,0 +1,540 @@
+{
+	"info": {
+		"_postman_id": "d3be716e-5b0f-43fe-af75-6cb7dea7dde2",
+		"name": "proyecto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar Productos | /api/productos/?:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Producto | /api/productos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"nuevo\",\r\n    \"descripcion\": \"Nuevo\",\r\n    \"codigo\": \"2\",\r\n    \"foto\": \"http://image.jpg\",\r\n    \"precio\": 200.90,\r\n    \"stock\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/productos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Producto | /api/productos/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"description\": \"a Descripcion\",\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/productos/6179cc6a4154883f54305940",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos",
+						"6179cc6a4154883f54305940"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Producto | /api/productos/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/productos/617b569f29f46b0a0869c251",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos",
+						"617b569f29f46b0a0869c251"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Carrito | /api/carrito",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjE3OWNlNDg0MTU0ODgzZjU0MzA1OTUwIiwiZW1haWwiOiJhbGVqYW5kcm9AZ21haWwuY29tIiwibmFtZSI6IkFsZWphbmRybyIsImxhc3ROYW1lIjoiQWxpYWdhIiwiYWdlIjoiMjkiLCJwaG9uZSI6Iis1NDIzNDY1NDA5NTIiLCJhdmF0YXIiOiJ1cGxvYWRzXFxhdmF0YXI0LnBuZy0xNjM1MzcyNjE2MDIzLnBuZyJ9LCJpYXQiOjE2MzUzNzU2NTksImV4cCI6MTYzNTM3NjI1OX0.2QGKW3ImshG0p3FXynpCqs6q9GbEwihCKy8aN7EHL7I",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/carrito",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carrito"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Prod a Carrito | /api/carrito/:idProducto?quantity=15",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjE3OWNlNDg0MTU0ODgzZjU0MzA1OTUwIiwiZW1haWwiOiJhbGVqYW5kcm9AZ21haWwuY29tIiwibmFtZSI6IkFsZWphbmRybyIsImxhc3ROYW1lIjoiQWxpYWdhIiwiYWdlIjoiMjkiLCJwaG9uZSI6Iis1NDIzNDY1NDA5NTIiLCJhdmF0YXIiOiJ1cGxvYWRzXFxhdmF0YXI0LnBuZy0xNjM1MzcyNjE2MDIzLnBuZyJ9LCJpYXQiOjE2MzUzNzU2NTksImV4cCI6MTYzNTM3NjI1OX0.2QGKW3ImshG0p3FXynpCqs6q9GbEwihCKy8aN7EHL7I",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/carrito/617b56a629f46b0a0869c254?quantity=5000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carrito",
+						"617b56a629f46b0a0869c254"
+					],
+					"query": [
+						{
+							"key": "quantity",
+							"value": "3000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar cantidad Carrito  | api/carrito/:idCarrito",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/carrito/617b49227b7b1f4abcaa3424?quantity=52",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carrito",
+						"617b49227b7b1f4abcaa3424"
+					],
+					"query": [
+						{
+							"key": "quantity",
+							"value": "42"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar de Carrito | api/carrito/:idCarrito Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/carrito/617b493d7b7b1f4abcaa342c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carrito",
+						"617b493d7b7b1f4abcaa342c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Nueva Orden | /api/order",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjE3OWNlNDg0MTU0ODgzZjU0MzA1OTUwIiwiZW1haWwiOiJhbGVqYW5kcm9AZ21haWwuY29tIiwibmFtZSI6IkFsZWphbmRybyIsImxhc3ROYW1lIjoiQWxpYWdhIiwiYWdlIjoiMjkiLCJwaG9uZSI6Iis1NDIzNDY1NDA5NTIiLCJhdmF0YXIiOiJ1cGxvYWRzXFxhdmF0YXI0LnBuZy0xNjM1MzcyNjE2MDIzLnBuZyJ9LCJpYXQiOjE2MzUzNzU2NTksImV4cCI6MTYzNTM3NjI1OX0.2QGKW3ImshG0p3FXynpCqs6q9GbEwihCKy8aN7EHL7I",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login | /api/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nicosa@gmail.com\",\r\n    \"password\": \"23451\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signup API| api/auth/signUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "nicosa@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "repeat_password",
+							"value": "23451",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "23451",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "NicoAng",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Angel",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "23",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "+6666666666",
+							"type": "text"
+						},
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "http://image.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Session | /auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nicosa@gmail.com\",\r\n    \"password\": \"23451\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signup Sesion | /auth/signUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "nicosa@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "23451",
+							"type": "text"
+						},
+						{
+							"key": "repeat_password",
+							"value": "23451",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "NicoAng",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Angel",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "23",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "+6666666666",
+							"type": "text"
+						},
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "http://image.jpg"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Usuario | /api/auth/user",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiNjE3YjNmMGY0MTA1N2MzOWQ4ZTU4MmVmIiwiZW1haWwiOiJhbGVqYW5kcm8zQGdtYWlsLmNvbSIsIm5hbWUiOiJBbGVqYW5kcm80NTQiLCJsYXN0TmFtZSI6IkFsaWFnYSIsImFnZSI6IjI2IiwicGhvbmUiOiIrNTQyMzQ2NTQwOTUyIiwiYXZhdGFyIjoidXBsb2Fkc1xcYXZhdGFyNC5wbmctMTYzNTQ2NzAyMzYyMi5wbmcifSwiaWF0IjoxNjM1NDY3MDc0LCJleHAiOjE2MzU0Njc2NzR9.5S0Y93E4fYXz0uyK1mfS_1IjFyOnL1okcTOyMOZKHT4",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/auth/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout | /auth/logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/auth/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

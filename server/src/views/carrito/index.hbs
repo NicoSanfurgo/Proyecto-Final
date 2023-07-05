@@ -1,0 +1,142 @@
+
+<section class="columns is-centered">
+    <div class="column is-half">
+      <h1 class="title">
+        Carrito 
+      </h1>
+
+    {{#if cartExists}}
+    <table class="table is-hoverable">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each cartItems}}
+          <tr>
+            <td>
+              <div class="is-flex is-flex-direction-column	">
+                <figure class="is-flex is-align-items-center is-justify-content-center image is-128x128">
+                  <img  src={{ this.product.thumbnail }} alt="Placeholder image">
+                </figure>
+                <span class="mt-0">{{ this.product.title }} </span>  
+              </div>
+               
+            </td>
+            <td>
+              {{ this.product.price }}
+            </td>
+            <td>
+
+              <div class="field has-addons">
+                  <div class="control" style="width: 4rem; ">
+                    <input class="input" type="number" id="quantity{{ this.id }}" min="1"  value={{ this.quantity }}  />
+                  </div>
+                  <div class="control">
+                      <button class="button" onclick="refreshQuantity('{{ this.id }}', this)">
+                          <i class="fa fa-refresh" aria-hidden="true"></i> 
+                      </button>
+                  </div>
+              </div>
+            </td>
+            <td>
+              <span class="total"></span>
+            </td>
+            <td>
+              <button class="button is-danger" onclick="removeProduct('{{ this.id }}', this)" >
+                <i id="icon-remove" class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+      <tfoot class="is-fullwidth">
+        <tr>
+          <th>Total:</th>
+          <th>$<span class="fullTotal"></span></th>
+        </tr>
+      </tfoot>
+    </table>
+
+    <button class="button is-success">Realizar Pedido</button>
+        
+    {{else}}
+    <h1>No hay Productos en el Carrito</h1>
+    {{/if}}
+    </div>
+  </section>
+
+<script>
+
+window.onload = () => {
+
+  const totals = document.querySelectorAll('.total')
+  if (totals.length > 0) showTotals(totals)
+}
+
+function showTotals(totalsElements) {
+
+  let fullTotal = []
+
+    totalsElements.forEach( ele => {
+      let quantity = ele.parentElement.previousElementSibling.children[0].children[0].children[0].value
+      let price = ele.parentElement.previousElementSibling.previousElementSibling.textContent
+      let total = (Number(quantity) * Number(price)).toFixed(2)
+
+      fullTotal.push(total)
+
+      ele.innerText = total
+      })
+
+
+    document.querySelector('.fullTotal').innerText = 
+      fullTotal.length == 1 
+        ? fullTotal[0] 
+        : (fullTotal.reduce( ( prev, current ) => Number(prev) + Number(current) )).toFixed(2)
+}
+
+function refreshQuantity(idCarrito, ele){
+  const quantity = document.getElementById(`quantity${idCarrito}`).value
+    if( quantity < 1 ) return false
+
+  replaceIconForSpinner( ele.children[0] )
+
+
+  fetch(`/api/carrito/${idCarrito}?quantity=${quantity}`,{
+    method: 'PUT'
+  }).then(res => {
+    location.reload()
+  }).catch(err => {
+    alert('Ha ocurrido un error')
+  })
+}
+
+function removeProduct(idCarrito, ele){
+   replaceIconForSpinner( ele.children[0] )
+
+  fetch(`/api/carrito/${idCarrito}`,{
+    method: 'DELETE'
+    }).then(res => {
+      location.reload()
+    }).catch(err => {
+      alert('Ha ocurrido un error')
+    })
+}
+
+function replaceIconForSpinner(iconElement){
+  iconElement.classList = ['fas fa-spinner']
+   iconElement.animate([{
+    transform: 'rotate(360deg)'
+   }],{
+    duration: 2000,
+    iterations: Infinity
+   })
+}
+
+</script>
+ 

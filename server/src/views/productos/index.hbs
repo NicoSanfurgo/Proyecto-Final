@@ -1,0 +1,31 @@
+<section class="section">
+    <div class="container">
+      <h1 class="title">
+        Productos
+      </h1>
+      
+    {{#if productsExists}}
+        <ul class="columns is-desktop">
+            {{#each products}}
+
+            <div class="card column">
+                <div class="card-image">
+                    <figure class="image ">
+                    <img src={{ this.thumbnail }} alt="Placeholder image">
+                    
+                    </figure>
+                </div>
+                <div class="card-content">
+
+                    <div class="content">
+                    {{ this.description }}
+                    <br>
+                        <a href="/productos/{{this.id}}"class="button is-success">Ver Producto</a>
+                    </div>
+            </div>
+            </div>
+            {{/each}}
+        </ul>
+    {{/if}}
+    </div>
+  </section>
